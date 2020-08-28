@@ -1,0 +1,52 @@
+.nav {
+	position: absolute;
+	bottom: 0;
+	height: 93vh;
+	left: -100%;
+	width: 100%;
+	background: white;
+	transition: transform .3s;
+
+	&__list {
+		list-style: none;
+	}
+
+	&__item {
+		a {
+			align-items: center;
+	    display: flex;
+	    justify-content: center;
+			text-align: center;
+			text-decoration: none;
+			color: black;
+			height: 100%;
+			width: 100%;
+			min-height: 44px;
+			min-width: 44px;
+			padding: 0 1em;
+
+			&:hover {
+				background: red;
+			}
+		}
+	}
+
+	&--open {
+		transform: translateX(100%);
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.nav {
+		position: relative;
+		background: none;
+		left: 0;
+		width: auto;
+		height: 100%;
+
+		&__list {
+			display: flex;
+			height: 100%;
+		}
+	}	
+}

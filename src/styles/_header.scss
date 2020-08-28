@@ -1,0 +1,36 @@
+.header {
+	height: 7vh;
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+
+	&__title {
+    text-align: center;
+    width: 100%;
+	}
+
+	&__content {
+		height: 100%;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	&__menu {
+		background: none;
+		border: none;
+		font-size: 1.3rem;
+		cursor: pointer;
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.header {
+
+		&__title {
+			width: auto;
+		}
+
+		&__menu {
+			display: none;
+		}
+	}
+}

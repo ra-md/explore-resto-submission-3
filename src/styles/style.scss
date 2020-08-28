@@ -1,0 +1,31 @@
+@import 'config';
+@import 'header';
+@import 'nav';
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: 'Roboto', sans-serif;
+}
+
+.container {
+	height: 100%;
+	padding: 0 10px;
+	max-width: 1080px;
+	margin: 0 auto;
+}
+
+.overlay {
+	background: rgba(0,0,0,0.5);
+	position: fixed;
+	height: 100%;
+	width: 100%;
+}
+
+main {
+	margin: 1em 0;
+}
