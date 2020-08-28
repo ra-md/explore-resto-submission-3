@@ -1,7 +1,7 @@
 .nav {
 	position: absolute;
 	bottom: 0;
-	height: 93vh;
+	height: 90vh;
 	left: -100%;
 	width: 100%;
 	background: white;
@@ -18,15 +18,17 @@
 	    justify-content: center;
 			text-align: center;
 			text-decoration: none;
-			color: black;
+			color: white;
+			font-weight: bold;
 			height: 100%;
 			width: 100%;
 			min-height: 44px;
 			min-width: 44px;
-			padding: 0 1em;
+			padding: 0 2.5em;
 
 			&:hover {
 				background: red;
+				border-radius: 10px;
 			}
 		}
 	}
@@ -43,10 +45,14 @@
 		left: 0;
 		width: auto;
 		height: 100%;
+    display: flex;
+    align-items: center;
 
 		&__list {
 			display: flex;
-			height: 100%;
+			background: rgba(255, 255, 255, 0.5);
+	    border-radius: 10px;
+	    backdrop-filter: blur(5px);
 		}
 	}	
 }
