@@ -25,3 +25,25 @@ body {
 main {
   margin: 1em 0;
 }
+
+.skip-link {
+  padding: 1em;
+  color: white;
+  background: $blue;
+  position: absolute;
+  min-width: 44px;
+  min-height: 44px;
+  border-radius: 5px;
+  top: -100px;
+  transition: transform .3s;
+
+  &:focus {
+    transform: translateY(100px);
+  }
+}
+
+.footer {
+  padding: 1em;
+  background: white;
+  text-align: center;
+}
