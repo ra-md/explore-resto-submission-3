@@ -2,6 +2,7 @@
 @import 'header';
 @import 'nav';
 @import 'jumbotron';
+@import 'restoran';
 
 * {
   box-sizing: border-box;
@@ -11,12 +12,13 @@
 
 body {
   font-family: 'Roboto', sans-serif;
+  background: $gray;
 }
 
 .container {
   height: 100%;
   padding: 0 10px;
-  max-width: 1080px;
+  max-width: 1024px;
   margin: 0 auto;
 }
 
