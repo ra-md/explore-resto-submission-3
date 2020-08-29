@@ -9,8 +9,9 @@
     min-height: 44px;
     min-width: 44px;
     background: none;
-    display: grid;
-    place-content: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: relative;
     z-index: 10;
 

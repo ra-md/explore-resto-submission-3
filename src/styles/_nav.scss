@@ -17,8 +17,9 @@
 
   &__item {
     a {
-      display: grid;
-      place-content: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       min-height: 44px;
       min-width: 44px;
       text-decoration: none;
