@@ -11,14 +11,19 @@
 		height: 100%;
 		display: flex;
 		justify-content: space-between;
-		align-items: center;
+		align-items: baseline;
 	}
 
 	&__menu {
-		background: none;
+		min-width: 44px;
 		border: none;
 		font-size: 1.3rem;
 		cursor: pointer;
+		background: rgba(255, 255, 255,0.5);
+    color: white;
+    border-radius: 5px;
+    padding: 2px 8px;
+    backdrop-filter: blur(5px);
 	}
 }
 

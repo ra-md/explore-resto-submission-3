@@ -1,13 +1,23 @@
 .nav {
 	position: absolute;
 	bottom: 0;
-	height: 90vh;
-	left: -100%;
+	left: 0;
+	height: 93vh;
 	width: 100%;
-	background: white;
-	transition: transform .3s;
+	visibility: hidden;
+	opacity: 0;
+	transform: scale(.95);
+	transition: opacity, transform, visibility;
+	transition-duration: .3s;
 
 	&__list {
+		position: absolute;
+    background: white;
+    top: 1em;
+    bottom: 1em;
+    left: 1em;
+    right: 1em;
+    border-radius: 10px;
 		list-style: none;
 	}
 
@@ -18,7 +28,7 @@
 	    justify-content: center;
 			text-align: center;
 			text-decoration: none;
-			color: white;
+			color: black;
 			font-weight: bold;
 			height: 100%;
 			width: 100%;
@@ -27,32 +37,46 @@
 			padding: 0 2.5em;
 
 			&:hover {
-				background: red;
-				border-radius: 10px;
+				color: red;
 			}
 		}
 	}
 
 	&--open {
-		transform: translateX(100%);
+		visibility: visible;
+		opacity: 1;
+		transform: scale(1);
 	}
 }
 
 @media screen and (min-width: 768px) {
 	.nav {
-		position: relative;
-		background: none;
-		left: 0;
-		width: auto;
-		height: 100%;
+    visibility: visible;
+    opacity: 1;
+    width: auto;
+    position: relative;
+    background: none;
+    left: 0;
+    height: 100%;
     display: flex;
     align-items: center;
 
 		&__list {
+			position: static;
 			display: flex;
 			background: rgba(255, 255, 255, 0.5);
 	    border-radius: 10px;
 	    backdrop-filter: blur(5px);
+		}
+
+		&__item {
+			a {
+				color: white;
+
+				&:hover {
+					border-radius: 10px;
+				}
+			}
 		}
 	}	
 }
