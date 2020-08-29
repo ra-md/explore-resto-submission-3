@@ -1,6 +1,6 @@
 .nav {
 	position: absolute;
-	top: 5em;
+	top: 4em;
 	bottom: 0;
 	left: 0;
 	width: 100%;
@@ -56,6 +56,7 @@
     width: auto;
     position: relative;
     background: none;
+		top: 0;
     left: 0;
     height: 100%;
     display: flex;
@@ -69,7 +70,7 @@
 
 		&__item {
 			a {
-				padding-left: 2.5em;
+				margin-left: 2.5em;
 				font-size: 1.2rem;
 				color: white;
 			}
