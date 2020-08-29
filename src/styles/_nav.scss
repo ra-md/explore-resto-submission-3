@@ -9,6 +9,7 @@
 	transform: scale(.95);
 	transition: opacity, transform, visibility;
 	transition-duration: .3s;
+	z-index: 1;
 
 	&__list {
 		position: absolute;
@@ -34,7 +35,6 @@
 			width: 100%;
 			min-height: 44px;
 			min-width: 44px;
-			padding: 0 2.5em;
 
 			&:hover {
 				color: red;
@@ -64,18 +64,14 @@
 		&__list {
 			position: static;
 			display: flex;
-			background: rgba(255, 255, 255, 0.5);
-	    border-radius: 10px;
-	    backdrop-filter: blur(5px);
+			background: transparent;
 		}
 
 		&__item {
 			a {
+				padding-left: 2.5em;
+				font-size: 1.2rem;
 				color: white;
-
-				&:hover {
-					border-radius: 10px;
-				}
 			}
 		}
 	}	
