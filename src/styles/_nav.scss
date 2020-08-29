@@ -1,79 +1,54 @@
 .nav {
 	position: absolute;
-	top: 4em;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	visibility: hidden;
-	opacity: 0;
-	transform: scale(.95);
-	transition: opacity, transform, visibility;
-	transition-duration: .3s;
-	z-index: 1;
+  top: 4em;
+  bottom: 1em;
+  left: 1em;
+  right: 1em;
+  background: white;
+  border-radius: 10px;
+  visibility: hidden;
 
-	&__list {
-		position: absolute;
-    background: white;
-    top: 1em;
-    bottom: 1em;
-    left: 1em;
-    right: 1em;
-    border-radius: 10px;
-		list-style: none;
-	}
+  &__list {
+  	list-style: none;
+  }
 
-	&__item {
-		a {
-			align-items: center;
-	    display: flex;
-	    justify-content: center;
-			text-align: center;
-			text-decoration: none;
-			color: black;
-			font-weight: bold;
-			height: 100%;
-			width: 100%;
-			min-height: 44px;
-			min-width: 44px;
+  &__item {
+  	a {
+  		display: grid;
+  		place-content: center;
+  		min-height: 44px;
+  		min-width: 44px;
+  		text-decoration: none;
+  		width: 100%;
+  		text-align: center;
+  		font-weight: bold;
+  		color: black;
 
-			&:hover {
-				color: red;
-			}
-		}
-	}
+  		&:hover {
+  			color: red;
+  		}
+  	}
+  }
 
-	&--open {
-		visibility: visible;
-		opacity: 1;
-		transform: scale(1);
-	}
+  &--open {
+  	visibility: visible;
+  }
 }
 
 @media screen and (min-width: 768px) {
 	.nav {
-    visibility: visible;
-    opacity: 1;
-    width: auto;
-    position: relative;
-    background: none;
-		top: 0;
-    left: 0;
-    height: 100%;
-    display: flex;
-    align-items: center;
+		background: none;
+		position: static;
+		visibility: visible;
 
 		&__list {
-			position: static;
 			display: flex;
-			background: transparent;
 		}
 
 		&__item {
 			a {
-				margin-left: 2.5em;
-				font-size: 1.2rem;
-				color: white;
+				padding: 0 1em;
 			}
 		}
-	}	
+	}
 }
