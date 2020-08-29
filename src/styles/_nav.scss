@@ -3,12 +3,13 @@
   background: white;
   visibility: hidden;
   top: 2.7em;
-  bottom: 0;
+  height: 100%;
   width: 100%;
   left: -100%;
   transition: transform, visibility;
   transition-duration: .5s;
   transition-timing-function: ease;
+  padding: 0 5px;
 
   &__list {
     list-style: none;
@@ -27,7 +28,12 @@
       color: black;
 
       &:hover {
-        color: red;
+        color: $blue;
+      }
+
+      &:focus {
+        outline: none;
+        box-shadow: $focus-outline;
       }
     }
   }
