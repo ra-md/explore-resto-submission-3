@@ -14,7 +14,7 @@ restaurants.forEach(({
   description,
 }) => {
   daftarRestortan.innerHTML += `
-    <div class="restoran">
+    <article class="restoran">
       <img class="restoran__image" alt="restoran ${name}" src="${pictureId}"/>
       <div class="restoran-body">
         <h1 class="restoran-body__name">${name}</h1>
@@ -24,6 +24,6 @@ restaurants.forEach(({
           <span class="city-rating__rating"><i class="fas fa-star"></i>${rating}</span>
         </div>
       </div>
-    </div>
+    </article>
   `;
 });
