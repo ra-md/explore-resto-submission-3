@@ -1,6 +1,7 @@
 .header {
   background: white;
   box-shadow: 0 0 20px black;
+  padding: 3px 0;
 
   &__menu {
     border: none;
@@ -8,13 +9,14 @@
     min-height: 44px;
     min-width: 44px;
     background: none;
-    border-radius: 10px;
     display: grid;
     place-content: center;
+    position: relative;
+    z-index: 10;
 
     &:focus {
-      position: relative;
-      z-index: 10;
+      outline: none;
+      box-shadow: $focus-outline;
     }
   }
 
