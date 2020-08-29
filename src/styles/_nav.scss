@@ -1,58 +1,58 @@
 .nav {
-	position: absolute;
+  position: absolute;
   background: white;
   visibility: hidden;
-	top: 2.7em;
-	bottom: 0;
-	width: 100%;
-	left: -100%;
-	transition: transform, visibility;
-	transition-duration: .5s;
-	transition-timing-function: ease;
+  top: 2.7em;
+  bottom: 0;
+  width: 100%;
+  left: -100%;
+  transition: transform, visibility;
+  transition-duration: .5s;
+  transition-timing-function: ease;
 
   &__list {
-  	list-style: none;
+    list-style: none;
   }
 
   &__item {
-  	a {
-  		display: grid;
-  		place-content: center;
-  		min-height: 44px;
-  		min-width: 44px;
-  		text-decoration: none;
-  		width: 100%;
-  		text-align: center;
-  		font-weight: bold;
-  		color: black;
+    a {
+      display: grid;
+      place-content: center;
+      min-height: 44px;
+      min-width: 44px;
+      text-decoration: none;
+      width: 100%;
+      text-align: center;
+      font-weight: bold;
+      color: black;
 
-  		&:hover {
-  			color: red;
-  		}
-  	}
+      &:hover {
+        color: red;
+      }
+    }
   }
 
   &--open {
-  	transform: translateX(100%);
-  	visibility: visible;
+    transform: translateX(100%);
+    visibility: visible;
   }
 }
 
 @media screen and (min-width: 768px) {
-	.nav {
-		background: none;
-		position: static;
-		visibility: visible;
-		width: unset;
+  .nav {
+    background: none;
+    position: static;
+    visibility: visible;
+    width: unset;
 
-		&__list {
-			display: flex;
-		}
+    &__list {
+      display: flex;
+    }
 
-		&__item {
-			a {
-				padding: 0 1em;
-			}
-		}
-	}
+    &__item {
+      a {
+        padding: 0 1em;
+      }
+    }
+  }
 }
