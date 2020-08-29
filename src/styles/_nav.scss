@@ -1,12 +1,14 @@
 .nav {
 	position: absolute;
-  top: 4em;
-  bottom: 1em;
-  left: 1em;
-  right: 1em;
   background: white;
-  border-radius: 10px;
   visibility: hidden;
+	top: 2.7em;
+	bottom: 0;
+	width: 100%;
+	left: -100%;
+	transition: transform, visibility;
+	transition-duration: .5s;
+	transition-timing-function: ease;
 
   &__list {
   	list-style: none;
@@ -31,6 +33,7 @@
   }
 
   &--open {
+  	transform: translateX(100%);
   	visibility: visible;
   }
 }
@@ -40,6 +43,7 @@
 		background: none;
 		position: static;
 		visibility: visible;
+		width: unset;
 
 		&__list {
 			display: flex;
