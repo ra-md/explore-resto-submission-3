@@ -15,7 +15,7 @@ restaurants.forEach(({
 }) => {
   daftarRestortan.innerHTML += `
     <article class="restoran">
-      <img class="restoran__image" alt="restoran ${name}" src="${pictureId}"/>
+      <img class="restoran__image" loading="lazy" height="200" width="200" alt="restoran ${name}" src="${pictureId}"/>
       <div class="restoran-body">
         <h1 class="restoran-body__name">${name}</h1>
         <p class="restoran-body__description">${potongText(description, 10)}</p>
