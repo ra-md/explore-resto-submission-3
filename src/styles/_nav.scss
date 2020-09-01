@@ -1,79 +1,67 @@
 .nav {
-	position: absolute;
-	top: 4em;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	visibility: hidden;
-	opacity: 0;
-	transform: scale(.95);
-	transition: opacity, transform, visibility;
-	transition-duration: .3s;
-	z-index: 1;
+  position: absolute;
+  background: white;
+  visibility: hidden;
+  top: 3em;
+  height: 100vh;
+  width: 100%;
+  left: -100%;
+  transition: transform, visibility;
+  transition-duration: .5s;
+  transition-timing-function: ease;
+  padding: 0 5px;
+  z-index: 5;
 
-	&__list {
-		position: absolute;
-    background: white;
-    top: 1em;
-    bottom: 1em;
-    left: 1em;
-    right: 1em;
-    border-radius: 10px;
-		list-style: none;
-	}
+  &__list {
+    list-style: none;
+  }
 
-	&__item {
-		a {
-			align-items: center;
-	    display: flex;
-	    justify-content: center;
-			text-align: center;
-			text-decoration: none;
-			color: black;
-			font-weight: bold;
-			height: 100%;
-			width: 100%;
-			min-height: 44px;
-			min-width: 44px;
+  &__item {
+    a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 44px;
+      min-width: 44px;
+      text-decoration: none;
+      width: 100%;
+      text-align: center;
+      font-weight: bold;
+      color: black;
 
-			&:hover {
-				color: red;
-			}
-		}
-	}
+      &:hover {
+        color: $blue;
+      }
 
-	&--open {
-		visibility: visible;
-		opacity: 1;
-		transform: scale(1);
-	}
+      &:focus {
+        outline: none;
+        box-shadow: $focus-outline;
+      }
+    }
+  }
+
+  &--open {
+    transform: translateX(100%);
+    visibility: visible;
+  }
 }
 
 @media screen and (min-width: 768px) {
-	.nav {
-    visibility: visible;
-    opacity: 1;
-    width: auto;
-    position: relative;
+  .nav {
     background: none;
-		top: 0;
-    left: 0;
-    height: 100%;
-    display: flex;
-    align-items: center;
+    position: static;
+    visibility: visible;
+    width: unset;
+    height: unset;
 
-		&__list {
-			position: static;
-			display: flex;
-			background: transparent;
-		}
+    &__list {
+      display: flex;
+    }
 
-		&__item {
-			a {
-				margin-left: 2.5em;
-				font-size: 1.2rem;
-				color: white;
-			}
-		}
-	}	
+    &__item {
+      a {
+        padding: 0 1em;
+      }
+    }
+  }
 }
