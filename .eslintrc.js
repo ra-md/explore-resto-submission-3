@@ -8,5 +8,6 @@ module.exports = {
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'linebreak-style': 'off',
+    'no-underscore-dangle': 'off',
   },
 };
