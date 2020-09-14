@@ -2,6 +2,11 @@
   background: white;
   box-shadow: 0 0 20px black;
   padding: 3px 0;
+  position: sticky;
+  left: 0;
+  z-index: 10;
+  top: 0;
+  right: 0;
 
   &__menu {
     border: none;
@@ -15,11 +20,6 @@
     position: relative;
     z-index: 10;
     cursor: pointer;
-
-    &:focus {
-      outline: none;
-      box-shadow: $focus-outline;
-    }
   }
 
   &__title {

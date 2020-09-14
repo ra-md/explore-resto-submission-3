@@ -32,11 +32,6 @@
       &:hover {
         color: $blue;
       }
-
-      &:focus {
-        outline: none;
-        box-shadow: $focus-outline;
-      }
     }
   }
 
