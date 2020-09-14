@@ -1,14 +1,17 @@
-.daftar-restoran {
-  display: grid;
-  grid-gap: 1.5em;
-  margin: 1em 0;
-
-  &__title {
+.restaurants {
+  &__h1 {
+    padding: .5em 0;
     text-align: center;
   }
 }
 
-.restoran {
+#restaurants-list {
+  display: grid;
+  grid-gap: 1.5em;
+  margin: 1em 0;
+}
+
+.restaurant {
   background: white;
   border-radius: 5px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.3);
@@ -21,11 +24,16 @@
   }
 }
 
-.restoran-body {
+.restaurant-body {
   padding: .5em;
 
   &__description {
     margin: .5em 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
   }
 
   &__name {
@@ -48,30 +56,20 @@
   &__rating {
     font-size: small;
     border-radius: 5px;
-    background: yellow;
+    background: $yellow;
     padding: 3px 10px;
   }
 }
 
 @media screen and (min-width: 768px) {
-  .daftar-restoran {
+  #restaurants-list {
     grid-template-columns: 1fr 1fr;
     grid-gap: 2em;
-
-    &__title {
-      grid-column-start: 1;
-      grid-column-end: 3;
-    }
   }
 }
 
 @media screen and (min-width: 1024px) {
-  .daftar-restoran {
+  #restaurants-list {
     grid-template-columns: 1fr 1fr 1fr;
-
-    &__title {
-      grid-column-start: 1;
-      grid-column-end: 4;
-    }
   }
 }
