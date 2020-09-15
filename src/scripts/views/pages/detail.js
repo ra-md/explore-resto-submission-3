@@ -16,6 +16,7 @@ const Detail = {
     const { restaurant } = await RestaurantSource.restaurantDetail(url.id);
 
     restaurantDetail.innerHTML = restaurantDetailTemplate(restaurant);
+
     window.scrollTo(0, 0);
     console.log(restaurant);
   },
