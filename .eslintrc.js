@@ -10,5 +10,6 @@ module.exports = {
     'linebreak-style': 'off',
     'no-underscore-dangle': 'off',
     'import/prefer-default-export': 'off',
+    'arrow-body-style': 'off',
   },
 };
