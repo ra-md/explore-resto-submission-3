@@ -4,7 +4,7 @@
   padding: 3px 0;
   position: sticky;
   left: 0;
-  z-index: 10;
+  z-index: 100;
   top: 0;
   right: 0;
 
@@ -26,6 +26,11 @@
     line-height: 1.4;
     width: 100%;
     text-align: center;
+
+    a {
+      color: black;
+      text-decoration: none;
+    }
   }
 
   &__content {

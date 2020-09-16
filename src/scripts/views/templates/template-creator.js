@@ -71,12 +71,12 @@ function restaurantDetailTemplate({
 
   return `
     <div class="restaurant-detail__picture">
-      <img src="${API_ENDPOINT.RESTAURANT_IMAGE(pictureId, 'large')}"/>
+      <h1 class="restaurant-name">${name}</h1>
+      <img alt="gambar restoran ${name}" src="${API_ENDPOINT.RESTAURANT_IMAGE(pictureId, 'large')}"/>
     </div>
     <div class="container">
       <div class="restaurant-detail__body">
         <div class="profile">
-          <h1 class="detail__name">${name}</h1>
           <p class="detail__address"><i class="fas fa-map-marker-alt"></i>${city}, ${address}</p>
           <p class="detail__categories"><i class="fas fa-layer-group"></i>${transformCategories}</p>
           <p class="detail__rating"><i class="fas fa-star"></i>${rating}</p>
@@ -97,13 +97,24 @@ function restaurantDetailTemplate({
             </ul>
           </div>
         </div>
-        <h1>Consumer reviews</h1>
         <div class="consumer-reviews">
-          ${reviews(consumerReviews)}
+          <h1>Consumer Reviews</h1>
+          <div class="consumer-reviews__list">
+            ${reviews(consumerReviews)}
+          </div>
         </div>
       </div>
     </div>
   `;
 }
 
-export { restaurantItemTemplate, restaurantDetailTemplate, loading };
+function errorTemplate(error) {
+  return `<p class="error-message">${error}</p>`;
+}
+
+export {
+  restaurantItemTemplate,
+  restaurantDetailTemplate,
+  loading,
+  errorTemplate,
+};
