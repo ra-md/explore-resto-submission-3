@@ -42,6 +42,10 @@
       &__address, &__categories, &__rating {
         padding: 5px 0;
         font-weight: bold;
+
+        i {
+          padding: 0 5px;
+        }
       }
 
       &__description {

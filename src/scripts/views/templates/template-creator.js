@@ -105,6 +105,7 @@ function restaurantDetailTemplate({
         </div>
       </div>
     </div>
+    <div id="favButtonContainer"></div>
   `;
 }
 
@@ -112,9 +113,17 @@ function errorTemplate(error) {
   return `<p class="error-message">${error}</p>`;
 }
 
+function likeButtonTemplate(type) {
+  return `
+  <button aria-label="${type} this movie" id="favButton">
+    <i class="${type === 'like' ? 'far' : 'fas'} fa-heart" aria-hidden="true"></i>
+  </button>`;
+}
+
 export {
   restaurantItemTemplate,
   restaurantDetailTemplate,
   loading,
   errorTemplate,
+  likeButtonTemplate,
 };
