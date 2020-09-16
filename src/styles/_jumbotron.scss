@@ -22,7 +22,22 @@
 
     h1 {
       font-size: 2.5em;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: #00DBDE;
+      background-image: linear-gradient(90deg, #00DBDE, #FC00FF, #00DBDE);
+      background-size: 1600px 200px;
+      animation: bg-animation 30s infinite forwards;
     }
+  }
+}
+
+@keyframes bg-animation {
+  0% {
+    background-position: 0 1600px;
+  }
+  100% {
+    background-position: 1600px 0;
   }
 }
 
