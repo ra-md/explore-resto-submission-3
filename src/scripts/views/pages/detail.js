@@ -13,12 +13,12 @@ const Detail = {
   async afterRender() {
     const restaurantDetail = document.getElementById('restaurant');
     const url = UrlParser.parseActiveUrlWithoutCombiner();
+    const response = await RestaurantSource.restaurantDetail(url.id);
 
-    try {
-      const { restaurant } = await RestaurantSource.restaurantDetail(url.id);
-      restaurantDetail.innerHTML = restaurantDetailTemplate(restaurant);
-    } catch (error) {
-      restaurantDetail.innerHTML = errorTemplate(error);
+    if (response.error || !response.restaurant) {
+      restaurantDetail.innerHTML = errorTemplate(response.message);
+    } else {
+      restaurantDetail.innerHTML = restaurantDetailTemplate(response.restaurant);
     }
 
     window.scrollTo(0, 0);
