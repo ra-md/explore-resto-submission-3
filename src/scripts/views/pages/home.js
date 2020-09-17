@@ -5,12 +5,12 @@ const Home = {
   async render() {
     return `
     <div class="jumbotron">
-      <img class="jumbotron__image" src="images/heros/hero-image_2.jpg" alt="">
       <div class="jumbotron__text">
         <h1>Tempat Makan Yang Sedang Populer Di Indonesia</h1>
       </div>
     </div>
     <div class="restaurants container">
+      <img src="https://image.tmdb.org/t/p/w500//9Rj8l6gElLpRL7Kj17iZhrT5Zuw.jpg" />
       <h1 class="restaurants__h1">Daftar Restoran</h1>
       <div id="restaurants-list">${loading}</div>
     </div>

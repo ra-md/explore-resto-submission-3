@@ -11,5 +11,6 @@ module.exports = {
     'no-underscore-dangle': 'off',
     'import/prefer-default-export': 'off',
     'arrow-body-style': 'off',
+    'no-restricted-globals': 'off',
   },
 };

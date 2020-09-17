@@ -1,4 +1,4 @@
-import API_ENDPOINT from '../../globals/api-endpoint';
+import CONFIG from '../../globals/config';
 
 function menuList(menus) {
   return menus.reduce((acc, current) => acc.concat(`<li>${current.name}</li>`), '');
@@ -38,11 +38,8 @@ function restaurantItemTemplate({
       <a href="#/detail/${id}">
         <img
           class="restaurant__image"
-          loading="lazy"
-          height="400"
-          width="300"
           alt="restoran ${name}"
-          src="${API_ENDPOINT.RESTAURANT_IMAGE(pictureId, 'small')}"/>
+          src="${`${CONFIG.BASE_IMAGE_URL}/small/${pictureId}`}"/>
         <div class="restaurant-body">
           <h1 class="restaurant-body__name">${name}</h1>
           <p class="restaurant-body__description">${description}</p>
@@ -72,7 +69,7 @@ function restaurantDetailTemplate({
   return `
     <div class="restaurant-detail__picture">
       <h1 class="restaurant-name">${name}</h1>
-      <img alt="gambar restoran ${name}" src="${API_ENDPOINT.RESTAURANT_IMAGE(pictureId, 'large')}"/>
+      <img alt="gambar restoran ${name}" src="${`${CONFIG.BASE_IMAGE_URL}/large/${pictureId}`}"/>
     </div>
     <div class="container">
       <div class="restaurant-detail__body">
