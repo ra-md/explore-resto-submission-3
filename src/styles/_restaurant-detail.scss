@@ -13,7 +13,7 @@
       position: absolute;
       width: 100%;
       top: 20vh;
-      font-size: 4rem;
+      font-size: 3rem;
       color: white;
       z-index: 10;
     }
@@ -110,12 +110,6 @@
 
 @media screen and (min-width: 768px) {
   .restaurant-detail {
-    &__picture {
-      .restaurant-name {
-        font-size: 7rem;
-      }
-    }
-
     .menus {
       grid-template-columns: 1fr 1fr;
 
