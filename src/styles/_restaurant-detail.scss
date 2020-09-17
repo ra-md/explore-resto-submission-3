@@ -35,7 +35,7 @@
       padding: 1em;
       background: white;
       border-radius: 5px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      box-shadow: $shadow;
     }
 
     .detail {
@@ -58,7 +58,7 @@
       margin: 3em 0;
       background: white;
       border-radius: 5px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      box-shadow: $shadow;
 
       h1 {
         margin-top: 5px;
