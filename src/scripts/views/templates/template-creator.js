@@ -39,7 +39,8 @@ function restaurantItemTemplate({
         <img
           class="restaurant__image"
           alt="restoran ${name}"
-          src="${`${CONFIG.BASE_IMAGE_URL}/small/${pictureId}`}"/>
+          src="${`${CONFIG.BASE_IMAGE_URL}/small/${pictureId}`}"
+          crossorigin='anonymous'/>
         <div class="restaurant-body">
           <h1 class="restaurant-body__name">${name}</h1>
           <p class="restaurant-body__description">${description}</p>
@@ -69,7 +70,7 @@ function restaurantDetailTemplate({
   return `
     <div class="restaurant-detail__picture">
       <h1 class="restaurant-name">${name}</h1>
-      <img alt="gambar restoran ${name}" src="${`${CONFIG.BASE_IMAGE_URL}/large/${pictureId}`}"/>
+      <img alt="gambar restoran ${name}" src="${`${CONFIG.BASE_IMAGE_URL}/large/${pictureId}`}" crossorigin='anonymous'/>
     </div>
     <div class="container">
       <div class="restaurant-detail__body">
