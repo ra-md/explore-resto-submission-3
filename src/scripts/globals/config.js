@@ -6,8 +6,7 @@ const CONFIG = {
   DATABASE_NAME: 'favorite-restaurants-database',
   DATABASE_VERSION: 1,
   OBJECT_STORE_NAME: 'favorite-restaurants',
-  // CACHE_NAME: 'restaurants-cache',
-  CACHE_NAME: new Date().toISOString(),
+  CACHE_NAME: 'restaurants-cache',
 };
 
 export default CONFIG;
