@@ -33,8 +33,8 @@
       -webkit-text-fill-color: transparent;
       color: #00DBDE;
       background-image: linear-gradient(90deg, #00DBDE, #FC00FF, #00DBDE);
-      background-size: 1600px 200px;
-      animation: bg-animation 15s infinite forwards;
+      background-size: 600px 200px;
+      animation: bg-animation 30s infinite forwards;
     }
   }
 
@@ -47,10 +47,10 @@
 
 @keyframes bg-animation {
   0% {
-    background-position: 0 1600px;
+    background-position: 0 600px;
   }
   100% {
-    background-position: 1600px 0;
+    background-position: 600px 0;
   }
 }
 
