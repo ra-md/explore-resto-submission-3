@@ -38,8 +38,11 @@ function restaurantItemTemplate({
       <a href="#/detail/${id}">
         <img
           class="restaurant__image"
-          alt="restoran ${name}"
+          alt="Restoran ${name}"
           src="${`${CONFIG.BASE_IMAGE_URL}/small/${pictureId}`}"
+          height="400"
+          width="300"
+          loading="lazy"
           crossorigin='anonymous'/>
         <div class="restaurant-body">
           <h1 class="restaurant-body__name">${name}</h1>
