@@ -16,6 +16,24 @@ class RestaurantSource {
       return error;
     }
   }
+
+  static async reviewRestaurant(review) {
+    try {
+      const response = await fetch('https://dicoding-restaurant-api.el.r.appspot.com/review', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Auth-Token': '12345',
+        },
+        body: JSON.stringify(review),
+      });
+
+      const jsonResponse = response.json();
+      return jsonResponse;
+    } catch (error) {
+      return error;
+    }
+  }
 }
 
 export default RestaurantSource;

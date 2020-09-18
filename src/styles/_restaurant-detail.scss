@@ -55,7 +55,7 @@
 
     .menus {
       display: grid;
-      margin: 3em 0;
+      margin: 1.5em 0;
       background: white;
       border-radius: 5px;
       box-shadow: $shadow;
@@ -81,10 +81,13 @@
     }
 
     .consumer-reviews {
+      margin: 1em 0;
+      display: grid;
+      grid-gap: 1.5em;
+
       &__list {
         display: grid;
         grid-gap: 1.5em;
-        margin: 1em auto;
       }
 
       &__body {
@@ -105,6 +108,53 @@
         font-weight: 500;
       }
     }
+
+    .review-form {
+      display: flex;
+      flex-direction: column;
+      background: white;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      padding: 1em;
+
+      .review-message {
+        color: red;
+      }
+
+      &__name {
+        display: flex;
+        align-items: center;
+
+        label {
+          margin-right: 5px;
+        }
+
+        input {
+          width: 100%;
+        }
+      }
+
+      &__textarea, input[type=text] {
+        border: none;
+        background: $gray-300;
+        padding: 8px;
+        border-radius: 5px;
+      }
+
+      &__textarea {
+        max-width: 500px;
+        min-height: 5em;
+      }
+
+      &__submit {
+        color: white;
+        align-self: flex-end;
+      }
+
+      & * {
+        margin: 5px 0;
+      }
+    }
   }
 }
 
@@ -120,9 +170,13 @@
     }
 
     .consumer-reviews {
-      width: 50%;
-      margin: auto;
       grid-template-columns: 1fr 1fr;
+      align-items: flex-start;
+
+      h1 {
+        grid-column-start: 1;
+        grid-column-end: 3;
+      }
     }
   }
 }

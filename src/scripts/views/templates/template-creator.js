@@ -100,6 +100,20 @@ function restaurantDetailTemplate({
         </div>
         <div class="consumer-reviews">
           <h1>Consumer Reviews</h1>
+          <form id="form-new-review" class="review-form">
+            <label for="review-name">Nama: </label>
+            <input type="text" id="review-name" placeholder="write your name here...">
+            <label for="review">Review: </label>
+            <textarea
+              id="review"
+              placeholder="write your review here..."
+              class="review-form__textarea"
+              name="review-textarea"
+              form="add-new-review"
+            ></textarea>
+            <p class="review-message"></p>
+            <input type="submit" class="review-form__submit btn">
+          </form>
           <div class="consumer-reviews__list">
             ${reviews(consumerReviews)}
           </div>
