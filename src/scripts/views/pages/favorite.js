@@ -11,19 +11,22 @@ const Favorite = {
     `;
   },
   async afterRender() {
-    const restaurantList = document.getElementById('restaurants-list');
+    this._restaurantList = document.getElementById('restaurants-list');
 
-    const restaurants = await FavoriteRestaurantIdb.getAll();
+    const restaurantsIndexedDB = await FavoriteRestaurantIdb.getAll();
 
-    if (restaurants.length === 0) {
-      restaurantList.style.gridTemplateColumns = '1fr';
-      restaurantList.style.textAlign = 'center';
-      restaurantList.innerHTML = 'Masih Kosong';
+    if (restaurantsIndexedDB.length === 0) {
+      this.emptyFavoriteRestaurant();
     } else {
-      restaurants.forEach((restaurant) => {
-        restaurantList.innerHTML += restaurantItemTemplate(restaurant);
+      restaurantsIndexedDB.forEach((restaurant) => {
+        this._restaurantList.innerHTML += restaurantItemTemplate(restaurant);
       });
     }
+  },
+  _emptyFavoriteRestaurant() {
+    this._restaurantList.style.gridTemplateColumns = '1fr';
+    this._restaurantList.style.textAlign = 'center';
+    this._restaurantList.innerHTML = 'Masih Kosong';
   },
 };
 
