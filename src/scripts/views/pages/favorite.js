@@ -16,7 +16,7 @@ const Favorite = {
     const restaurantsIndexedDB = await FavoriteRestaurantIdb.getAll();
 
     if (restaurantsIndexedDB.length === 0) {
-      this.emptyFavoriteRestaurant();
+      this._emptyFavoriteRestaurant();
     } else {
       restaurantsIndexedDB.forEach((restaurant) => {
         this._restaurantList.innerHTML += restaurantItemTemplate(restaurant);
