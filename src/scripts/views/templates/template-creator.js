@@ -112,7 +112,7 @@ function restaurantDetailTemplate({
               form="add-new-review"
             ></textarea>
             <p class="review-message"></p>
-            <input type="submit" class="review-form__submit btn">
+            <input type="submit" class="review-form__submit btn" value="Submit">
           </form>
           <div class="consumer-reviews__list">
             ${reviews(consumerReviews)}

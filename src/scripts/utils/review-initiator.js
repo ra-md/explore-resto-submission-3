@@ -41,12 +41,12 @@ const ReviewInitiator = {
     };
 
     const response = await RestaurantSource.reviewRestaurant(reviewBody);
-    console.log(response);
+
     if (response.error) {
       this._setErrorMessage(response.message);
     } else {
-      this._restaurant.consumerReviews = response.customerReviews;
-      this._setNewRestaurant();
+      this._setRestaurant({ ...this._restaurant, consumerReviews: response.customerReviews });
+      window.scrollTo(0, document.body.scrollHeight || document.documentElement.scrollHeight);
     }
   },
   _setErrorMessage(message) {
@@ -56,8 +56,8 @@ const ReviewInitiator = {
     this._submitBtn.setAttribute('disabled', true);
     this._submitBtn.setAttribute('value', 'Loading...');
   },
-  _setNewRestaurant() {
-    this._restaurantElm.innerHTML = restaurantDetailTemplate(this._restaurant);
+  _setRestaurant(restaurant) {
+    this._restaurantElm.innerHTML = restaurantDetailTemplate(restaurant);
   },
 };
 
