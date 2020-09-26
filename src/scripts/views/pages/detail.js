@@ -2,7 +2,7 @@ import RestaurantSource from '../../data/restaurant-source';
 import UrlParser from '../../routes/url-parser';
 import { restaurantDetailTemplate, loading, errorTemplate } from '../templates/template-creator';
 import LikeButtonPresenter from '../../utils/like-button-presenter';
-import ReviewInitiator from '../../utils/review-initiator';
+import ReviewPresenter from '../../utils/review-presenter';
 import FavoriteRestaurantIdb from '../../data/favorite-restaurants';
 
 const Detail = {
@@ -24,7 +24,7 @@ const Detail = {
       restaurantElm.innerHTML = restaurantDetailTemplate(response.restaurant);
     }
 
-    ReviewInitiator.init({
+    ReviewPresenter.init({
       submit: document.querySelector('.review-form__submit'),
       nameElm: document.getElementById('review-name'),
       reviewElm: document.getElementById('review'),
