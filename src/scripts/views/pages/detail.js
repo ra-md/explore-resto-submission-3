@@ -1,8 +1,9 @@
 import RestaurantSource from '../../data/restaurant-source';
 import UrlParser from '../../routes/url-parser';
 import { restaurantDetailTemplate, loading, errorTemplate } from '../templates/template-creator';
-import LikeButtonInitiator from '../../utils/like-button-initiator';
+import LikeButtonPresenter from '../../utils/like-button-presenter';
 import ReviewInitiator from '../../utils/review-initiator';
+import FavoriteRestaurantIdb from '../../data/favorite-restaurants';
 
 const Detail = {
   async render() {
@@ -32,8 +33,9 @@ const Detail = {
       restaurant: response.restaurant,
     });
 
-    LikeButtonInitiator.init({
+    LikeButtonPresenter.init({
       favButtonContainer: document.getElementById('favButtonContainer'),
+      favoriteRestaurants: FavoriteRestaurantIdb,
       restaurant: response.restaurant,
     });
 
