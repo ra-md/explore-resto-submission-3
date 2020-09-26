@@ -1,4 +1,4 @@
-import { likeButtonTemplate } from '../views/templates/template-creator';
+import { likeButtonTemplate, likedButtonTemplate } from '../views/templates/template-creator';
 import FavoriteRestaurantIdb from '../data/favorite-restaurants';
 
 const LikeButtonInitiator = {
@@ -20,7 +20,7 @@ const LikeButtonInitiator = {
     return !!restaurant;
   },
   _renderLikeButton() {
-    this._favButtonContainer.innerHTML = likeButtonTemplate('like');
+    this._favButtonContainer.innerHTML = likeButtonTemplate();
 
     document.getElementById('favButton').addEventListener('click', async () => {
       await FavoriteRestaurantIdb.put(this._restaurant);
@@ -28,7 +28,7 @@ const LikeButtonInitiator = {
     });
   },
   _renderLikedButton() {
-    this._favButtonContainer.innerHTML = likeButtonTemplate('liked');
+    this._favButtonContainer.innerHTML = likedButtonTemplate();
 
     document.getElementById('favButton').addEventListener('click', async () => {
       await FavoriteRestaurantIdb.delete(this._restaurant.id);

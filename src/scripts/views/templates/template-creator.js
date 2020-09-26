@@ -128,11 +128,21 @@ function errorTemplate(error) {
   return `<p class="error-message">${error}</p>`;
 }
 
-function likeButtonTemplate(type) {
+function buttonWithHeartIconTemplate(fasOrFar) {
+  const isFar = fasOrFar === 'far';
+
   return `
-  <button aria-label="${type} this movie" id="favButton">
-    <i class="${type === 'like' ? 'far' : 'fas'} fa-heart" aria-hidden="true"></i>
+  <button aria-label="${isFar ? 'Like' : 'Unlike'} this movie" id="favButton">
+    <i class="${isFar ? 'far' : 'fas'} fa-heart" aria-hidden="true"></i>
   </button>`;
+}
+
+function likeButtonTemplate() {
+  return buttonWithHeartIconTemplate('far');
+}
+
+function likedButtonTemplate() {
+  return buttonWithHeartIconTemplate('fas');
 }
 
 export {
@@ -141,4 +151,5 @@ export {
   loading,
   errorTemplate,
   likeButtonTemplate,
+  likedButtonTemplate,
 };
