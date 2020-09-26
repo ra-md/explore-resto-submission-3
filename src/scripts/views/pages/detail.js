@@ -31,6 +31,7 @@ const Detail = {
       messageElm: document.querySelector('.review-message'),
       restaurantElm,
       restaurant: response.restaurant,
+      restaurantSource: RestaurantSource,
     });
 
     LikeButtonPresenter.init({

@@ -1,4 +1,3 @@
-import RestaurantSource from '../data/restaurant-source';
 import { restaurantDetailTemplate } from '../views/templates/template-creator';
 
 const ReviewInitiator = {
@@ -9,11 +8,13 @@ const ReviewInitiator = {
     messageElm,
     restaurantElm,
     restaurant,
+    restaurantSource,
   }) {
     this._messageElm = messageElm;
     this._submitBtn = submit;
     this._restaurantElm = restaurantElm;
     this._restaurant = restaurant;
+    this._restaurantSource = restaurantSource;
 
     this._submitBtn.addEventListener('click', (e) => {
       e.preventDefault();
@@ -40,7 +41,7 @@ const ReviewInitiator = {
       review: this._review,
     };
 
-    const response = await RestaurantSource.reviewRestaurant(reviewBody);
+    const response = await this._restaurantSource.reviewRestaurant(reviewBody);
 
     if (response.error) {
       this._setErrorMessage(response.message);
