@@ -132,7 +132,7 @@ function buttonWithHeartIconTemplate(fasOrFar) {
   const isFar = fasOrFar === 'far';
 
   return `
-  <button aria-label="${isFar ? 'Like' : 'Unlike'} this movie" id="favButton">
+  <button aria-label="${isFar ? 'Like' : 'Unlike'} this restaurant" id="favButton">
     <i class="${isFar ? 'far' : 'fas'} fa-heart" aria-hidden="true"></i>
   </button>`;
 }
