@@ -7,10 +7,6 @@ describe('Unliking A Restaurant', () => {
     document.body.innerHTML = '<div id="favButtonContainer"></div>';
   };
 
-  function clickFavBtn() {
-    document.querySelector('#favButton').dispatchEvent(new Event('click'));
-  }
-
   beforeEach(async () => {
     addLikeButtonContainer();
     await FavoriteRestaurantIdb.put({ id: 1 });
@@ -35,7 +31,7 @@ describe('Unliking A Restaurant', () => {
   it('should be able to remove liked restaurant from the list', async () => {
     await TestFactories.createLikeButtonPresenterWithRestaurant({ id: 1 });
    
-    clickFavBtn();
+    TestFactories.clickFavBtn()
    
     expect(await FavoriteRestaurantIdb.getAll()).toEqual([]);
   });
@@ -45,7 +41,7 @@ describe('Unliking A Restaurant', () => {
    
     await FavoriteRestaurantIdb.delete(1);
    
-    clickFavBtn();
+    TestFactories.clickFavBtn()
    
     expect(await FavoriteRestaurantIdb.getAll()).toEqual([]);
   });

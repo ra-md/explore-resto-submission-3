@@ -6,10 +6,6 @@ describe('Liking a restaurant', () => {
     document.body.innerHTML = '<div id="favButtonContainer"></div>';
   };
 
-  function clickFavBtn() {
-    document.querySelector('#favButton').dispatchEvent(new Event('click'));
-  }
-
   beforeEach(() => {
     addLikeButtonContainer();
   });
@@ -29,7 +25,7 @@ describe('Liking a restaurant', () => {
   it('should be able to like the restaurant', async () => {
     await TestFactories.createLikeButtonPresenterWithRestaurant({ id: 1 });
 
-    clickFavBtn();
+    TestFactories.clickFavBtn();
 
     const restaurant = await FavoriteRestaurantIdb.get(1);
 
@@ -43,7 +39,7 @@ describe('Liking a restaurant', () => {
 
     await FavoriteRestaurantIdb.put({ id: 1 });
 
-    clickFavBtn();
+    TestFactories.clickFavBtn();
 
     expect(await FavoriteRestaurantIdb.getAll()).toEqual([{ id: 1 }]);
 
@@ -53,7 +49,7 @@ describe('Liking a restaurant', () => {
   it('should not add a restaurant when it has no id', async () => {
     await TestFactories.createLikeButtonPresenterWithRestaurant({});
 
-    clickFavBtn();
+    TestFactories.clickFavBtn();
 
     expect(await FavoriteRestaurantIdb.getAll()).toEqual([]);
   });

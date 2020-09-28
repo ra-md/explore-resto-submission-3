@@ -9,4 +9,11 @@ const createLikeButtonPresenterWithRestaurant = async (restaurant) => {
   });
 };
 
-export { createLikeButtonPresenterWithRestaurant };
+function clickFavBtn() {
+  document.querySelector('#favButton').dispatchEvent(new Event('click'));
+}
+
+export {
+  createLikeButtonPresenterWithRestaurant,
+  clickFavBtn,
+};
