@@ -1,46 +1,48 @@
-import { restaurantDetailTemplate } from '../views/templates/template-creator';
+import { restaurantDetailTemplate, reviewForm } from '../views/templates/template-creator';
 
 const ReviewInitiator = {
   init({
-    submit,
-    nameElm,
-    reviewElm,
-    messageElm,
-    restaurantElm,
+    reviewContainer,
     restaurant,
     restaurantSource,
   }) {
-    this._messageElm = messageElm;
-    this._submitBtn = submit;
-    this._restaurantElm = restaurantElm;
-    this._restaurant = restaurant;
     this._restaurantSource = restaurantSource;
+    this._restaurant = restaurant;
 
-    this._submitBtn.addEventListener('click', (e) => {
-      e.preventDefault();
+    reviewContainer.innerHTML = reviewForm();
 
-      this._name = nameElm.value;
-      this._review = reviewElm.value;
+    this._submit({
+      restaurantId: restaurant.id,
+      name: document.getElementById('review-name'),
+      review: document.getElementById('review'),
+    });
+  },
+  _submit({ restaurantId, name, review }) {
+    const submitBtn = document.querySelector('.review-form__submit');
 
-      if (this._name.length === 0 && this._review.length === 0) {
+    submitBtn.addEventListener('click', (event) => {
+      event.preventDefault();
+
+      const nameValue = name.value;
+      const reviewValue = review.value;
+
+      if (nameValue.length === 0 && reviewValue.length === 0) {
         this._setErrorMessage('nama dan review harus diisi!');
-      } else if (this._name.length === 0) {
+      } else if (nameValue.length === 0) {
         this._setErrorMessage('nama harus diisi!');
-      } else if (this._review.length === 0) {
+      } else if (reviewValue.length === 0) {
         this._setErrorMessage('review harus diisi!');
       } else {
-        this._setLoading();
-        this._postReview(restaurant.id);
+        this._setLoading({ elm: submitBtn });
+        this._postReview({
+          id: restaurantId,
+          name: nameValue,
+          review: reviewValue,
+        });
       }
     });
   },
-  async _postReview(id) {
-    const reviewBody = {
-      id,
-      name: this._name,
-      review: this._review,
-    };
-
+  async _postReview(reviewBody) {
     const response = await this._restaurantSource.reviewRestaurant(reviewBody);
 
     if (response.error) {
@@ -51,14 +53,16 @@ const ReviewInitiator = {
     }
   },
   _setErrorMessage(message) {
-    this._messageElm.innerHTML = message;
+    const messageElm = document.querySelector('.review-message');
+    messageElm.innerHTML = message;
   },
-  _setLoading() {
-    this._submitBtn.setAttribute('disabled', true);
-    this._submitBtn.setAttribute('value', 'Loading...');
+  _setLoading({ elm }) {
+    elm.setAttribute('disabled', true);
+    elm.setAttribute('value', 'Loading...');
   },
   _setRestaurant(restaurant) {
-    this._restaurantElm.innerHTML = restaurantDetailTemplate(restaurant);
+    const restaurantElm = document.getElementById('restaurant');
+    restaurantElm.innerHTML = restaurantDetailTemplate(restaurant);
   },
 };
 

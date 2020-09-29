@@ -25,11 +25,7 @@ const Detail = {
     }
 
     ReviewPresenter.init({
-      submit: document.querySelector('.review-form__submit'),
-      nameElm: document.getElementById('review-name'),
-      reviewElm: document.getElementById('review'),
-      messageElm: document.querySelector('.review-message'),
-      restaurantElm,
+      reviewContainer: document.getElementById('review-container'),
       restaurant: response.restaurant,
       restaurantSource: RestaurantSourceIdb,
     });
