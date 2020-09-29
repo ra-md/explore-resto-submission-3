@@ -15,5 +15,6 @@ module.exports = {
     'no-new': 'off',
     'class-methods-use-this': 'off',
     'no-prototype-builtins': 'off',
+    'no-param-reassign': 'off',
   },
 };
