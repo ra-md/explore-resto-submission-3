@@ -1,4 +1,4 @@
-import RestaurantSource from '../../data/restaurant-source';
+import RestaurantSourceIdb from '../../data/restaurant-source';
 import { restaurantItemTemplate, loading, errorTemplate } from '../templates/template-creator';
 
 const Home = {
@@ -20,7 +20,7 @@ const Home = {
     const restaurantList = document.getElementById('restaurants-list');
 
     try {
-      const { restaurants } = await RestaurantSource.restaurantList();
+      const { restaurants } = await RestaurantSourceIdb.restaurantList();
       restaurantList.innerHTML = '';
 
       restaurants.forEach((restaurant) => {

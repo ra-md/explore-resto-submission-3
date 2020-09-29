@@ -1,9 +1,9 @@
-import RestaurantSource from '../../data/restaurant-source';
+import RestaurantSourceIdb from '../../data/restaurant-source';
 import UrlParser from '../../routes/url-parser';
 import { restaurantDetailTemplate, loading, errorTemplate } from '../templates/template-creator';
 import LikeButtonPresenter from '../../utils/like-button-presenter';
 import ReviewPresenter from '../../utils/review-presenter';
-import FavoriteRestaurantIdb from '../../data/favorite-restaurants';
+import FavoriteRestaurantIdb from '../../data/favorite-restaurants-idb';
 
 const Detail = {
   async render() {
@@ -16,7 +16,7 @@ const Detail = {
   async afterRender() {
     const restaurantElm = document.getElementById('restaurant');
     const url = UrlParser.parseActiveUrlWithoutCombiner();
-    const response = await RestaurantSource.restaurantDetail(url.id);
+    const response = await RestaurantSourceIdb.restaurantDetail(url.id);
 
     if (response.error || !response.restaurant) {
       restaurantElm.innerHTML = errorTemplate(response.message);
@@ -31,7 +31,7 @@ const Detail = {
       messageElm: document.querySelector('.review-message'),
       restaurantElm,
       restaurant: response.restaurant,
-      restaurantSource: RestaurantSource,
+      restaurantSource: RestaurantSourceIdb,
     });
 
     LikeButtonPresenter.init({
