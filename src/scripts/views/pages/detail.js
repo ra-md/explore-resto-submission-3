@@ -1,4 +1,4 @@
-import RestaurantSourceIdb from '../../data/restaurant-source';
+import RestaurantSourceApi from '../../data/restaurant-source-api';
 import UrlParser from '../../routes/url-parser';
 import { restaurantDetailTemplate, loading, errorTemplate } from '../templates/template-creator';
 import LikeButtonPresenter from '../../utils/like-button-presenter';
@@ -16,7 +16,7 @@ const Detail = {
   async afterRender() {
     const restaurantElm = document.getElementById('restaurant');
     const url = UrlParser.parseActiveUrlWithoutCombiner();
-    const response = await RestaurantSourceIdb.restaurantDetail(url.id);
+    const response = await RestaurantSourceApi.restaurantDetail(url.id);
 
     if (response.error || !response.restaurant) {
       restaurantElm.innerHTML = errorTemplate(response.message);
@@ -27,7 +27,7 @@ const Detail = {
     ReviewPresenter.init({
       reviewContainer: document.getElementById('review-container'),
       restaurant: response.restaurant,
-      restaurantSource: RestaurantSourceIdb,
+      restaurantSource: RestaurantSourceApi,
     });
 
     LikeButtonPresenter.init({

@@ -1,5 +1,5 @@
 import ReviewPresenter from '../src/scripts/utils/review-presenter';
-import RestaurantSourceApi from '../src/scripts/data/restaurant-source';
+import RestaurantSourceApi from '../src/scripts/data/restaurant-source-api';
 import fakeRestaurant from './data/fakeRestaurant.json';
 
 describe('Reviewing a restaurant', () => {
