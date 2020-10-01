@@ -13,7 +13,12 @@ function clickFavBtn() {
   document.querySelector('#favButton').dispatchEvent(new Event('click'));
 }
 
-export {
+function addLikeButtonContainer() {
+  document.body.innerHTML = '<div id="favButtonContainer"></div>';
+};
+
+export default {
   createLikeButtonPresenterWithRestaurant,
   clickFavBtn,
+  addLikeButtonContainer,
 };

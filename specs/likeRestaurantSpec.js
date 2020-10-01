@@ -1,13 +1,9 @@
 import FavoriteRestaurantIdb from '../src/scripts/data/favorite-restaurants-idb';
-import * as testFactories from './helpers/testFactories';
+import testFactories from './helpers/testFactories';
 
 describe('Liking a restaurant', () => {
-  const addLikeButtonContainer = () => {
-    document.body.innerHTML = '<div id="favButtonContainer"></div>';
-  };
-
   beforeEach(() => {
-    addLikeButtonContainer();
+    testFactories.addLikeButtonContainer();
   });
 
   it('should show the like button when the restaurant has not been liked before', async () => {

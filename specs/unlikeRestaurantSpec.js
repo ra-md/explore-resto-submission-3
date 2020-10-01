@@ -1,13 +1,9 @@
 import FavoriteRestaurantIdb from '../src/scripts/data/favorite-restaurants-idb';
-import * as testFactories from './helpers/testFactories';
+import testFactories from './helpers/testFactories';
  
 describe('Unliking A Restaurant', () => {
-  const addLikeButtonContainer = () => {
-    document.body.innerHTML = '<div id="favButtonContainer"></div>';
-  };
-
   beforeEach(async () => {
-    addLikeButtonContainer();
+    testFactories.addLikeButtonContainer();
     await FavoriteRestaurantIdb.put({ id: 1 });
   });
  
