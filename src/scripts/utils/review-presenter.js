@@ -63,6 +63,8 @@ const ReviewInitiator = {
   _setRestaurant(restaurant) {
     const restaurantElm = document.getElementById('restaurant');
     restaurantElm.innerHTML = restaurantDetailTemplate(restaurant);
+
+    document.getElementById('restaurant').dispatchEvent(new Event('review:updated'));
   },
 };
 
