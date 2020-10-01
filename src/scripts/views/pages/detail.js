@@ -9,7 +9,7 @@ const Detail = {
   async render() {
     return `
       <div id="restaurant" class="restaurant-detail">
-        ${loading}
+        ${loading()}
       </div>
     `;
   },

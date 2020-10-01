@@ -12,7 +12,7 @@ const Home = {
     </div>
     <div class="restaurants container">
       <h1 class="restaurants__h1">Daftar Restoran</h1>
-      <div id="restaurants-list">${loading}</div>
+      <div id="restaurants-list">${loading()}</div>
     </div>
     `;
   },
