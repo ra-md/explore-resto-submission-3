@@ -14,11 +14,11 @@ class DetailView {
   }
 
   set restaurant(restaurant) {
-    this._getRestaurantDetailElement.innerHTML = restaurantDetailTemplate(restaurant);
+    this._getRestaurantDetailElement().innerHTML = restaurantDetailTemplate(restaurant);
   }
 
   set error(errorMessage) {
-    this._getRestaurantDetailElement.innerHTML = errorTemplate(errorMessage);
+    this._getRestaurantDetailElement().innerHTML = errorTemplate(errorMessage);
   }
 }
 
