@@ -9,12 +9,16 @@ class DetailView {
     `;
   }
 
+  _getRestaurantDetailElement() {
+    return document.querySelector('.restaurant-detail');
+  }
+
   set restaurant(restaurant) {
-    document.querySelector('.restaurant-detail').innerHTML = restaurantDetailTemplate(restaurant);
+    this._getRestaurantDetailElement.innerHTML = restaurantDetailTemplate(restaurant);
   }
 
   set error(errorMessage) {
-    document.querySelector('.restaurant-detail').innerHTML = errorTemplate(errorMessage);
+    this._getRestaurantDetailElement.innerHTML = errorTemplate(errorMessage);
   }
 }
 
