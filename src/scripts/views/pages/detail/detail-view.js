@@ -9,11 +9,11 @@ class DetailView {
     `;
   }
 
-  _showRestaurant(restaurant) {
+  set restaurant(restaurant) {
     document.querySelector('.restaurant-detail').innerHTML = restaurantDetailTemplate(restaurant);
   }
 
-  _showError(errorMessage) {
+  set error(errorMessage) {
     document.querySelector('.restaurant-detail').innerHTML = errorTemplate(errorMessage);
   }
 }

@@ -10,9 +10,9 @@ class DetailPresenter {
     const response = await this._response;
 
     if (response.error) {
-      this._view._showError(response.message);
+      this._view.error = response.message;
     } else {
-      this._view._showRestaurant(response.restaurant);
+      this._view.restaurant = response.restaurant;
     }
   }
 
