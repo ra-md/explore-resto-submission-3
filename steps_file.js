@@ -3,7 +3,7 @@ const assert = require('assert');
 
 module.exports = function() {
   return actor({
-    likeRestaurant: async function() {
+    async likeRestaurant() {
       this.amOnPage('/');
 
       this.seeElement('.restaurant-body__name');
@@ -23,8 +23,25 @@ module.exports = function() {
 
       assert.strictEqual(firstRestaurantName, likedRestaurantName);
     },
-    seeEmptyRestaurant: function() {
+    seeEmptyRestaurant() {
       this.see('Tidak ada restaurant untuk ditampilkan', '.favorite-restaurant-not-found');
+    },
+    clickTheFirstRestaurant() {
+      this.amOnPage('/');
+
+      this.seeElement('.restaurant-body__name');
+      const firstRestaurant = locate('.restaurant-body__name').first();
+      this.click(firstRestaurant);
+    },
+    fillAndSubmitTheReview({ name, review }) {
+      this.seeElement('#review-name');
+      this.fillField('Nama', name);
+
+      this.seeElement('#review');
+      this.fillField('Review', review);
+
+      this.seeElement('.review-form__submit');
+      this.click('.review-form__submit');
     },
   });
 }
