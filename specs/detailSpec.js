@@ -6,6 +6,12 @@ import fakeRestaurant from './data/fakeRestaurant.json';
 describe('Showing a restaurant', () => {
   const view = new DetailView();
 
+  const responseError = {
+    error: true,
+    message: 'not found',
+    restaurant: null,
+  };
+
   function createDetailPresenter(id) {
     return new DetailPresenter({
       view,
@@ -14,13 +20,17 @@ describe('Showing a restaurant', () => {
     });
   }
 
+  function createSpy(args = 1, returnValues = responseError) {
+    spyOn(RestaurantSourceApi, 'restaurantDetail').withArgs(args).and.returnValues(returnValues);
+  }
+
   beforeEach(() => {
     document.body.innerHTML = view.template;
   });
 
   describe('when id does not exist', () => {
     it('should ask for the restaurant detail', async () => {
-      spyOn(RestaurantSourceApi, 'restaurantDetail');
+      createSpy();
 
       await createDetailPresenter(1);
      
@@ -28,12 +38,7 @@ describe('Showing a restaurant', () => {
     });
 
     it('should show an error message', async () => {
-
-      spyOn(RestaurantSourceApi, 'restaurantDetail').withArgs(1).and.returnValues({
-        error: true,
-        message: 'not found',
-        restaurant: null,
-      });
+      createSpy();
 
       await createDetailPresenter(1);
 
@@ -43,9 +48,7 @@ describe('Showing a restaurant', () => {
 
   describe('when restaurant exist', () => {
     it('should show a restaurant', async () => {
-      spyOn(RestaurantSourceApi, 'restaurantDetail').withArgs(fakeRestaurant.id).and.returnValues({
-        restaurant: fakeRestaurant,
-      });
+      createSpy(fakeRestaurant.id, { restaurant: fakeRestaurant });
 
       await createDetailPresenter(fakeRestaurant.id);
 
