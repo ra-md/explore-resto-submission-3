@@ -3,16 +3,16 @@ class DetailPresenter {
     this._view = view;
 
     this._response = restaurantSource.restaurantDetail(id);
-    this._displayRestaurant(this._response);
+    this._displayRestaurant();
   }
 
-  async _displayRestaurant(response) {
-    const { error, message, restaurant } = await response;
+  async _displayRestaurant() {
+    const response = await this._response;
 
-    if (error || !restaurant) {
-      this._view._showError(message);
+    if (response.error) {
+      this._view._showError(response.message);
     } else {
-      this._view._showRestaurant(restaurant);
+      this._view._showRestaurant(response.restaurant);
     }
   }
 
