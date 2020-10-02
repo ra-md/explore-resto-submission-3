@@ -18,8 +18,8 @@ describe('Showing a restaurant', () => {
     document.body.innerHTML = '<div class="restaurant-detail"></div>';
   });
 
-  describe('when restaurant does not exist', () => {
-    it('should show an error message if id not found', async () => {
+  describe('when id does not exist', () => {
+    it('should show an error message', async () => {
 
       spyOn(RestaurantSourceApi, 'restaurantDetail').withArgs(1).and.returnValues({
         error: true,
