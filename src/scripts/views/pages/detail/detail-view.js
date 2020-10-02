@@ -3,18 +3,18 @@ import { restaurantDetailTemplate, loading, errorTemplate } from '../../template
 class DetailView {
   get template() {
     return `
-      <div id="restaurant" class="restaurant-detail">
+      <div class="restaurant-detail">
         ${loading()}
       </div>
     `;
   }
 
   _showRestaurant(restaurant) {
-    document.getElementById('restaurant').innerHTML = restaurantDetailTemplate(restaurant);
+    document.querySelector('.restaurant-detail').innerHTML = restaurantDetailTemplate(restaurant);
   }
 
   _showError(errorMessage) {
-    document.getElementById('restaurant').innerHTML = errorTemplate(errorMessage);
+    document.querySelector('.restaurant-detail').innerHTML = errorTemplate(errorMessage);
   }
 }
 
