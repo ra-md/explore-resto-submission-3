@@ -21,11 +21,11 @@ describe('Reviewing a restaurant', () => {
   beforeEach(async () => {
     document.body.innerHTML = '<div id="review-container"></div>';
 
-    document.body.innerHTML += '<div id="restaurant"></div>';
+    document.body.innerHTML += '<div class="consumer-reviews__list"></div>';
 
     await ReviewPresenter.init({
       reviewContainer: document.getElementById('review-container'),
-      restaurant: fakeRestaurant,
+      restaurantId: 1,
       restaurantSource: RestaurantSourceApi,
     });
   });
@@ -55,7 +55,7 @@ describe('Reviewing a restaurant', () => {
   it('should show the review that has added', (done) => {
 
     const reviewBody = {
-      id: fakeRestaurant.id,
+      id: 1,
       name: 'Fake name',
       review: 'fakeReview',
     };
@@ -76,7 +76,7 @@ describe('Reviewing a restaurant', () => {
 
     clickSubmit();
 
-    document.getElementById('restaurant').addEventListener('review:updated', () => {
+    document.querySelector('.consumer-reviews__list').addEventListener('review:updated', () => {
       const reviewList = document.querySelectorAll('.consumer-reviews__body');
 
       expect(document.querySelectorAll('.consumer-reviews__name')

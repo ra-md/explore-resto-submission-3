@@ -1,21 +1,24 @@
-import { restaurantDetailTemplate, reviewForm } from '../views/templates/template-creator';
+import { reviewForm, reviews } from '../views/templates/template-creator';
 
 const ReviewInitiator = {
   init({
     reviewContainer,
-    restaurant,
+    restaurantId,
     restaurantSource,
   }) {
     this._restaurantSource = restaurantSource;
-    this._restaurant = restaurant;
+    this._reviewContainer = reviewContainer;
 
-    reviewContainer.innerHTML = reviewForm();
+    this._renderReviewForm();
 
     this._submit({
-      restaurantId: restaurant.id,
+      restaurantId,
       name: document.getElementById('review-name'),
       review: document.getElementById('review'),
     });
+  },
+  _renderReviewForm() {
+    this._reviewContainer.innerHTML = reviewForm();
   },
   _submit({ restaurantId, name, review }) {
     const submitBtn = document.querySelector('.review-form__submit');
@@ -48,7 +51,7 @@ const ReviewInitiator = {
     if (response.error) {
       this._setErrorMessage(response.message);
     } else {
-      this._setRestaurant({ ...this._restaurant, consumerReviews: response.customerReviews });
+      this._setReview(response.customerReviews);
       window.scrollTo(0, document.body.scrollHeight || document.documentElement.scrollHeight);
     }
   },
@@ -60,11 +63,12 @@ const ReviewInitiator = {
     elm.setAttribute('disabled', true);
     elm.setAttribute('value', 'Loading...');
   },
-  _setRestaurant(restaurant) {
-    const restaurantElm = document.getElementById('restaurant');
-    restaurantElm.innerHTML = restaurantDetailTemplate(restaurant);
+  _setReview(consumerReviews) {
+    document.querySelector('.consumer-reviews__list').innerHTML = reviews(consumerReviews);
 
-    document.getElementById('restaurant').dispatchEvent(new Event('review:updated'));
+    this._renderReviewForm();
+
+    document.querySelector('.consumer-reviews__list').dispatchEvent(new Event('review:updated'));
   },
 };
 

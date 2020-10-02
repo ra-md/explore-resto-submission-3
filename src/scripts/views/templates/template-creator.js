@@ -161,4 +161,5 @@ export {
   likeButtonTemplate,
   likedButtonTemplate,
   reviewForm,
+  reviews,
 };
