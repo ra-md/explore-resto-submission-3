@@ -20,6 +20,10 @@ class HomeView {
     return document.getElementById('restaurants-list');
   }
 
+  _dispatchNewEvent(element) {
+    element.dispatchEvent(new Event('restaurants:updated'));
+  }
+
   set setRestaurant(restaurants) {
     const restaurantListElement = this._getRestaurantListElement();
 
@@ -28,11 +32,15 @@ class HomeView {
     restaurants.forEach((restaurant) => {
       restaurantListElement.innerHTML += restaurantItemTemplate(restaurant);
     });
+
+    this._dispatchNewEvent(restaurantListElement);
   }
 
   set setError(error) {
     const restaurantListElement = this._getRestaurantListElement();
     restaurantListElement.innerHTML = errorTemplate(error);
+
+    this._dispatchNewEvent(restaurantListElement);
   }
 }
 

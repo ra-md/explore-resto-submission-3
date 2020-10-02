@@ -8,8 +8,8 @@ class HomePresenter {
 
   async _showRestaurantList() {
     try {
-      const { restaurants } = await this._restaurantSource.restaurantList();
-      this._view.setRestaurant = restaurants;
+      const response = await this._restaurantSource.restaurantList();
+      this._view.setRestaurant = response.restaurants;
     } catch (error) {
       this._view.setError = error;
     }
