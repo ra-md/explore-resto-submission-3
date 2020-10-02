@@ -3,7 +3,7 @@ import DetailView from '../src/scripts/views/pages/detail/detail-view';
 import RestaurantSourceApi from '../src/scripts/data/restaurant-source-api';
 import fakeRestaurant from './data/fakeRestaurant.json';
 
-describe('Showing a restaurant', () => {
+describe('Showing the restaurant detail', () => {
   const view = new DetailView();
 
   const responseError = {
