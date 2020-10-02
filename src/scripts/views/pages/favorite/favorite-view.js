@@ -11,19 +11,21 @@ class FavoriteView {
   }
 
   set displayRestaurants(restaurants) {
-    this._restaurantList = document.getElementById('restaurants-list');
+    const restaurantList = document.getElementById('restaurants-list');
 
     if (restaurants.length === 0) {
-      this._restaurantList.innerHTML = this._emptyFavoriteRestaurant();
+      restaurantList.innerHTML = this._emptyFavoriteRestaurant();
     } else {
       restaurants.forEach((restaurant) => {
-        this._restaurantList.innerHTML += restaurantItemTemplate(restaurant);
+        restaurantList.innerHTML += restaurantItemTemplate(restaurant);
       });
     }
+
+    restaurantList.dispatchEvent(new Event('restaurants:updated'));
   }
 
   _emptyFavoriteRestaurant() {
-    return '<p class="empty-favorite-restaurant">Tidak ada restaurant untuk ditampilkan</p>';
+    return '<p class="favorite-restaurant-not-found">Tidak ada restaurant untuk ditampilkan</p>';
   }
 }
 
