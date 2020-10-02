@@ -15,10 +15,18 @@ describe('Showing a restaurant', () => {
   }
 
   beforeEach(() => {
-    document.body.innerHTML = '<div class="restaurant-detail"></div>';
+    document.body.innerHTML = view.template;
   });
 
   describe('when id does not exist', () => {
+    it('should ask for the restaurant detail', async () => {
+      spyOn(RestaurantSourceApi, 'restaurantDetail');
+
+      await createDetailPresenter(1);
+     
+      expect(RestaurantSourceApi.restaurantDetail).toHaveBeenCalledTimes(1);
+    });
+
     it('should show an error message', async () => {
 
       spyOn(RestaurantSourceApi, 'restaurantDetail').withArgs(1).and.returnValues({
