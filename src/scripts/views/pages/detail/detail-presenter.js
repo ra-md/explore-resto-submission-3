@@ -7,10 +7,10 @@ class DetailPresenter {
   }
 
   async _displayRestaurant(response) {
-    const { error, restaurant } = await response;
+    const { error, message, restaurant } = await response;
 
     if (error || !restaurant) {
-      this._view._showError(error);
+      this._view._showError(message);
     } else {
       this._view._showRestaurant(restaurant);
     }
