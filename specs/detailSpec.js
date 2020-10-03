@@ -47,7 +47,7 @@ describe('Showing the restaurant detail', () => {
   });
 
   describe('when restaurant exist', () => {
-    it('should show a restaurant', async () => {
+    it('should show the restaurant detail', async () => {
       createSpy(fakeRestaurant.id, { restaurant: fakeRestaurant });
 
       await createDetailPresenter(fakeRestaurant.id);

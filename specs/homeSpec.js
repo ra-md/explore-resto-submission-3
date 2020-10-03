@@ -40,7 +40,7 @@ describe('Showing restaurant list', () => {
     });
   });
 
-  it('should show restaurants list', (done) => {
+  it('should show the restaurants list', (done) => {
     createSpy({ restaurants: [fakeRestaurant, fakeRestaurant] });
 
     createHomePresenter(RestaurantSourceApi);
