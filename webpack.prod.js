@@ -22,10 +22,10 @@ module.exports = merge(common, {
           minChunks: 2,
           priority: -20,
           reuseExistingChunk: true
-        }
-      }
-    }
- },
+        },
+      },
+    },
+  },
   module: {
     rules: [
       {
