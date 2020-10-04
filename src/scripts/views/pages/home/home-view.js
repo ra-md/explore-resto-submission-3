@@ -4,7 +4,12 @@ class HomeView {
   get template() {
     return `
       <div class="jumbotron">
-        <img class="jumbotron__image" src="images/heros/hero-image_2.jpg" alt="" />
+        <img
+          class="jumbotron__image"
+          src="./images/hero-image_2-large.webp"
+          srcset="./images/hero-image_2-small.webp 480w, ./images/hero-image_2-large.webp 800w"
+          sizes="(max-width: 600px) 480px, 800px" alt=""
+        >
         <div class="jumbotron__text">
           <h1>Tempat Makan Yang Sedang Populer Di Indonesia</h1>
         </div>
