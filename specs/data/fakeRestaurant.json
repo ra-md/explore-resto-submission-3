@@ -1,0 +1,51 @@
+{
+   "id":"d11i4vju2bkfokevvv",
+   "name":"Makan mudah",
+   "description":"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet.",
+   "city":"Aceh",
+   "address":"Jln. Pandeglang no 19",
+   "pictureId":"",
+   "categories":[{ "name" :"Modern"}],
+   "menus":{
+      "foods":[
+         {
+            "name":"Matzo farfel"
+         },
+         {
+            "name":"Napolitana"
+         },
+         {
+            "name":"Paket rosemary"
+         }
+      ],
+      "drinks":[
+         {
+            "name":"Jus tomat"
+         },
+         {
+            "name":"Es krim"
+         },
+         {
+            "name":"Jus alpukat"
+         }
+      ]
+   },
+   "rating":4.6,
+   "consumerReviews":[
+      {
+         "name":"Ahmad",
+         "review":"Tempatnya bagus namun menurut saya masih sedikit mahal.",
+         "date":"14 Agustus 2018"
+      },
+      {
+         "name":"Gilang",
+         "review":"Harganya murah sekali!",
+         "date":"13 Juli 2019"
+      },
+      {
+         "name":"Widdy",
+         "review":"Tidak rekomendasi untuk pelajar!",
+         "date":"13 November 2019"
+      }
+   ]
+}

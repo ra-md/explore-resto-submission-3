@@ -16,40 +16,35 @@ function reviews(consumerReviews) {
   }, '');
 }
 
-const loading = `
-  <div class="loading">
-    <div class="spinner">
-      <div class="double-bounce1"></div>
-      <div class="double-bounce2"></div>
+function loading() {
+  return `
+    <div class="loading">
+      <div class="spinner">
+        <div class="double-bounce1"></div>
+        <div class="double-bounce2"></div>
+      </div>
     </div>
-  </div>
-`;
+  `;
+}
 
-function restaurantItemTemplate({
-  name,
-  pictureId,
-  description,
-  city,
-  rating,
-  id,
-}) {
+function restaurantItemTemplate(restaurant) {
   return `
     <div class="restaurant">
-      <a href="#/detail/${id}">
+      <a href="#/detail/${restaurant.id}">
         <img
           class="restaurant__image"
-          alt="Restoran ${name}"
-          src="${`${CONFIG.BASE_IMAGE_URL}/small/${pictureId}`}"
+          alt="Restoran ${restaurant.name}"
+          src="${`${CONFIG.BASE_IMAGE_URL}/small/${restaurant.pictureId}`}"
           height="400"
           width="300"
           loading="lazy"
           crossorigin='anonymous'/>
         <div class="restaurant-body">
-          <h1 class="restaurant-body__name">${name}</h1>
-          <p class="restaurant-body__description">${description}</p>
+          <h1 class="restaurant-body__name">${restaurant.name}</h1>
+          <p class="restaurant-body__description">${restaurant.description}</p>
           <div class="city-rating">
-            <span class="city-rating__city"><i class="fas fa-map-marker-alt"></i>${city}</span>
-            <span class="city-rating__rating"><i class="fas fa-star"></i>${rating}</span>
+            <span class="city-rating__city"><i class="fas fa-map-marker-alt"></i>${restaurant.city}</span>
+            <span class="city-rating__rating"><i class="fas fa-star"></i>${restaurant.rating}</span>
           </div>
         </div>
       </a>
@@ -100,20 +95,7 @@ function restaurantDetailTemplate({
         </div>
         <div class="consumer-reviews">
           <h1>Consumer Reviews</h1>
-          <form id="form-new-review" class="review-form">
-            <label for="review-name">Nama: </label>
-            <input type="text" id="review-name" placeholder="write your name here...">
-            <label for="review">Review: </label>
-            <textarea
-              id="review"
-              placeholder="write your review here..."
-              class="review-form__textarea"
-              name="review-textarea"
-              form="add-new-review"
-            ></textarea>
-            <p class="review-message"></p>
-            <input type="submit" class="review-form__submit btn" value="Submit">
-          </form>
+          <div id="review-container"></div>
           <div class="consumer-reviews__list">
             ${reviews(consumerReviews)}
           </div>
@@ -128,11 +110,49 @@ function errorTemplate(error) {
   return `<p class="error-message">${error}</p>`;
 }
 
-function likeButtonTemplate(type) {
+function buttonWithHeartIconTemplate(fasOrFar) {
+  const isFar = fasOrFar === 'far';
+
   return `
-  <button aria-label="${type} this movie" id="favButton">
-    <i class="${type === 'like' ? 'far' : 'fas'} fa-heart" aria-hidden="true"></i>
+  <button aria-label="${isFar ? 'Like' : 'Unlike'} this restaurant" id="favButton">
+    <i class="${isFar ? 'far' : 'fas'} fa-heart" aria-hidden="true"></i>
   </button>`;
+}
+
+function likeButtonTemplate() {
+  return buttonWithHeartIconTemplate('far');
+}
+
+function likedButtonTemplate() {
+  return buttonWithHeartIconTemplate('fas');
+}
+
+function reviewForm() {
+  return `
+    <form id="form-new-review" class="review-form">
+      <label for="review-name">Nama: </label>
+      <input type="text" id="review-name" placeholder="write your name here...">
+      <label for="review">Review: </label>
+      <textarea
+        id="review"
+        placeholder="write your review here..."
+        class="review-form__textarea"
+        name="review-textarea"
+        form="add-new-review"
+      ></textarea>
+      <p class="review-message"></p>
+      <input type="submit" class="review-form__submit btn" value="Submit">
+    </form>
+  `;
+}
+
+function skeletonLoading({ height, width }) {
+  return `
+    <div class="skeleton" style="height: ${height}; width: ${width}">
+      <div class="skeleton-bg"></div>
+      <div class="skeleton-shimmer"></div>
+    </div>
+  `;
 }
 
 export {
@@ -141,4 +161,8 @@ export {
   loading,
   errorTemplate,
   likeButtonTemplate,
+  likedButtonTemplate,
+  reviewForm,
+  reviews,
+  skeletonLoading,
 };

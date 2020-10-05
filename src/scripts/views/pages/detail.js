@@ -1,40 +1,38 @@
-import RestaurantSource from '../../data/restaurant-source';
+import RestaurantSourceApi from '../../data/restaurant-source-api';
 import UrlParser from '../../routes/url-parser';
-import { restaurantDetailTemplate, loading, errorTemplate } from '../templates/template-creator';
-import LikeButtonInitiator from '../../utils/like-button-initiator';
-import ReviewInitiator from '../../utils/review-initiator';
+import LikeButtonPresenter from '../../utils/like-button-presenter';
+import ReviewPresenter from '../../utils/review-presenter';
+import FavoriteRestaurantIdb from '../../data/favorite-restaurants-idb';
+import DetailView from './detail/detail-view';
+import DetailPresenter from './detail/detail-presenter';
+
+const view = new DetailView();
 
 const Detail = {
   async render() {
-    return `
-      <div id="restaurant" class="restaurant-detail">
-        ${loading}
-      </div>
-    `;
+    return view.template;
   },
   async afterRender() {
-    const restaurantElm = document.getElementById('restaurant');
     const url = UrlParser.parseActiveUrlWithoutCombiner();
-    const response = await RestaurantSource.restaurantDetail(url.id);
 
-    if (response.error || !response.restaurant) {
-      restaurantElm.innerHTML = errorTemplate(response.message);
-    } else {
-      restaurantElm.innerHTML = restaurantDetailTemplate(response.restaurant);
-    }
-
-    ReviewInitiator.init({
-      submit: document.querySelector('.review-form__submit'),
-      nameElm: document.getElementById('review-name'),
-      reviewElm: document.getElementById('review'),
-      messageElm: document.querySelector('.review-message'),
-      restaurantElm,
-      restaurant: response.restaurant,
+    const presenter = new DetailPresenter({
+      view,
+      restaurantSource: RestaurantSourceApi,
+      id: url.id,
     });
 
-    LikeButtonInitiator.init({
+    const restaurant = await presenter.restaurant;
+
+    ReviewPresenter.init({
+      reviewContainer: document.getElementById('review-container'),
+      restaurantId: restaurant.id,
+      restaurantSource: RestaurantSourceApi,
+    });
+
+    LikeButtonPresenter.init({
       favButtonContainer: document.getElementById('favButtonContainer'),
-      restaurant: response.restaurant,
+      favoriteRestaurants: FavoriteRestaurantIdb,
+      restaurant,
     });
 
     window.scrollTo(0, 0);
