@@ -134,6 +134,38 @@ body {
   }
 }
 
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  border-radius: 5px;
+
+  &-bg {
+    height: inherit;
+    width: inherit;
+    background-color: rgb(238, 238, 238);
+  }
+
+  &-shimmer {
+    height: inherit;
+    width: inherit;
+    position: absolute;
+    top: 0;
+    transform: translateX(-100%);
+    background: linear-gradient(90deg, transparent, #f7f7f7, transparent);
+    animation: skeleton-animation 1s infinite;
+  }
+
+  @keyframes skeleton-animation {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(100%);
+    }
+  }
+}
+
+
 #favButtonContainer {
   position: fixed;
   bottom: 1em;

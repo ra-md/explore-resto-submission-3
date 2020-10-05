@@ -27,31 +27,24 @@ function loading() {
   `;
 }
 
-function restaurantItemTemplate({
-  name,
-  pictureId,
-  description,
-  city,
-  rating,
-  id,
-}) {
+function restaurantItemTemplate(restaurant) {
   return `
     <div class="restaurant">
-      <a href="#/detail/${id}">
+      <a href="#/detail/${restaurant.id}">
         <img
           class="restaurant__image"
-          alt="Restoran ${name}"
-          src="${`${CONFIG.BASE_IMAGE_URL}/small/${pictureId}`}"
+          alt="Restoran ${restaurant.name}"
+          src="${`${CONFIG.BASE_IMAGE_URL}/small/${restaurant.pictureId}`}"
           height="400"
           width="300"
           loading="lazy"
           crossorigin='anonymous'/>
         <div class="restaurant-body">
-          <h1 class="restaurant-body__name">${name}</h1>
-          <p class="restaurant-body__description">${description}</p>
+          <h1 class="restaurant-body__name">${restaurant.name}</h1>
+          <p class="restaurant-body__description">${restaurant.description}</p>
           <div class="city-rating">
-            <span class="city-rating__city"><i class="fas fa-map-marker-alt"></i>${city}</span>
-            <span class="city-rating__rating"><i class="fas fa-star"></i>${rating}</span>
+            <span class="city-rating__city"><i class="fas fa-map-marker-alt"></i>${restaurant.city}</span>
+            <span class="city-rating__rating"><i class="fas fa-star"></i>${restaurant.rating}</span>
           </div>
         </div>
       </a>
@@ -153,6 +146,15 @@ function reviewForm() {
   `;
 }
 
+function skeletonLoading({ height, width }) {
+  return `
+    <div class="skeleton" style="height: ${height}; width: ${width}">
+      <div class="skeleton-bg"></div>
+      <div class="skeleton-shimmer"></div>
+    </div>
+  `;
+}
+
 export {
   restaurantItemTemplate,
   restaurantDetailTemplate,
@@ -162,4 +164,5 @@ export {
   likedButtonTemplate,
   reviewForm,
   reviews,
+  skeletonLoading,
 };
