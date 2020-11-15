@@ -27,8 +27,13 @@ Scenario('should show "review harus diisi!" when the review value is empty', asy
 Scenario('Review a restaurant', ({ I }) => {
   I.clickTheFirstRestaurant();
 
-  I.fillAndSubmitTheReview({name: 'Test', review: 'Test123'});
+  const reviewTest = {
+    name: 'Test',
+    review: 'Test1 23',
+  };
 
-  I.see('Test', '.consumer-reviews__name');
-  I.see('Test 123', '.consumer-reviews__review');
+  I.fillAndSubmitTheReview(reviewTest);
+
+  I.see(reviewTest.name, '.consumer-reviews__name');
+  I.see(reviewTest.review, '.consumer-reviews__review');
 });

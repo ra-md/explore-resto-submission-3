@@ -45,6 +45,8 @@ body {
 }
 
 .btn {
+  min-height: 44px;
+  min-width: 44px;
   border: none;
   background: black;
   padding: 8px 20px;
@@ -175,6 +177,8 @@ body {
 }
 
 #favButton {
+  min-height: 44px;
+  min-width: 44px;
   cursor: pointer;
   border: none;
   background: $blue;
