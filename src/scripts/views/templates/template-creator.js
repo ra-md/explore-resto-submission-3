@@ -4,8 +4,8 @@ function menuList(menus) {
   return menus.reduce((acc, current) => acc.concat(`<li>${current.name}</li>`), '');
 }
 
-function reviews(consumerReviews) {
-  return consumerReviews.reduce((acc, current) => {
+function reviews(customerReviews) {
+  return customerReviews.reduce((acc, current) => {
     return acc.concat(`
       <div class="consumer-reviews__body">
         <p class="consumer-reviews__name">${current.name}</p>
@@ -61,7 +61,7 @@ function restaurantDetailTemplate({
   rating,
   description,
   menus,
-  consumerReviews,
+  customerReviews,
 }) {
   const transformCategories = categories.map((category) => category.name).join(', ');
 
@@ -97,7 +97,7 @@ function restaurantDetailTemplate({
           <h1>Consumer Reviews</h1>
           <div id="review-container"></div>
           <div class="consumer-reviews__list">
-            ${reviews(consumerReviews)}
+            ${reviews(customerReviews)}
           </div>
         </div>
       </div>
